@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react' // Import React hooks
-import reactLogo from './assets/react.svg' // Import React logo
-import viteLogo from '/vite.svg' // Import Vite logo
 import './App.css' // Import CSS styles
 import Gallery from './components/Gallery' // Import Gallery component
 
@@ -37,10 +35,10 @@ function App() {
   if (tours.length === 0) return <button onClick={fetchTours}>Refresh</button> // Show refresh button if no tours
 
   return (
-    <>
-      <h1>Our Tours</h1> {/* Page title */}
+    <div className="app-container"> {/* Main app container */}
+      <h1 className="title">Our Tours</h1> {/* Page title */}
       <Gallery tours={tours} setTours={setTours} /> {/* Render Gallery component */}
-    </>
+    </div>
   )
 }
 
