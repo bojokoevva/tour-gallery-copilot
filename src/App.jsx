@@ -24,7 +24,6 @@ function App() {
     }
   }
 
-  // Fetch tours when the component mounts
   useEffect(() => {
     fetchTours()
   }, [])
