@@ -1,42 +1,129 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
+/* General body styling */
+body {
+  background-color: #fef6fb; /* Light pastel pink background */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #4b4b4b; /* Soft gray text color */
+}
+
+/* Main container styling */
+main {
   padding: 2rem;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Page title */
+h1 {
+  color: #9b5de5; /* Pastel purple */
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  transition: color 0.3s ease;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Gallery container styling */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* Individual tour card styling */
+.tour-card {
+  background-color: #f8edeb; /* Pastel peach */
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card {
-  padding: 2em;
+.tour-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-.read-the-docs {
-  color: #888;
+/* Tour image */
+.tour-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
 }
+
+/* Tour details section */
+.tour-details {
+  padding: 1rem;
+  text-align: left;
+}
+
+/* Tour name styling */
+.tour-name {
+  color: #00bbf9; /* Pastel blue */
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
+  transition: color 0.3s ease;
+}
+
+.tour-card:hover .tour-name {
+  color: #00f5d4; /* Mint green on hover */
+}
+
+/* Tour price styling */
+.tour-price {
+  color: #ff6f91; /* Pastel coral */
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Tour description */
+.tour-info {
+  font-size: 1rem;
+  color: #4b4b4b;
+  margin-bottom: 1rem;
+}
+
+/* Not Interested button */
+.not-interested-btn {
+  background-color: #ffb5a7; /* Light coral */
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.not-interested-btn:hover {
+  background-color: #f28482; /* Slightly darker coral */
+  transform: scale(1.05);
+}
+
+/* No tours left message */
+.no-tours h2 {
+  color: #c77dff;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Refresh button styling */
+.refresh-btn {
+  background-color: #80ed99; /* Pastel green */
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.refresh-btn:hover {
+  background-color: #57cc99; /* Slightly darker green */
+  transform: scale(1.05);
+}
+
+
+
