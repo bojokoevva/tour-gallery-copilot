@@ -43,3 +43,25 @@ if (loading) return <h2>Loading...</h2>;
 
 // Conditional rendering: show error message
 if (error) return <h2>Error: {error}</h2>;
+// Conditional rendering: show refresh button when no tours are left
+if (tours.length === 0) {
+  return (
+    <div className="no-tours">
+      <h2>No tours left</h2>
+      <button className="refresh-btn" onClick={fetchTours}>
+        Refresh
+      </button>
+    </div>
+  );
+}
+
+// Main render: display title and Gallery with tours
+return (
+  <main>
+    <h1>Tours</h1>
+    <Gallery tours={tours} removeTour={removeTour} />
+  </main>
+);
+};
+
+export default App;
