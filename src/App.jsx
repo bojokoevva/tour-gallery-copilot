@@ -1,44 +1,45 @@
-import { useState, useEffect } from 'react' // Import React hooks
-import './App.css' // Import CSS styles
-import Gallery from './components/Gallery' // Import Gallery component
+import React, { useState, useEffect } from 'react'; // Import React hooks
+import Gallery from './components/Gallery'; // Import Gallery component
+import './App.css'; // Import styles
 
-function App() {
-  // State to store tours, loading status, and error message
-  const [tours, setTours] = useState([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
+const App = () => {
+  // State to store the list of tours
+  const [tours, setTours] = useState([]);
+  // State to track loading status
+  const [loading, setLoading] = useState(true);
+  // State to handle errors
+  const [error, setError] = useState(null);
 
   // Function to fetch tours from the API
   const fetchTours = async () => {
-    setLoading(true) // Set loading to true before fetching
-    setError(null) // Reset error state
+    setLoading(true); // Start loading
+    setError(null);   // Reset previous errors
+
     try {
-      const response = await fetch('https://course-api.com/react-tours-project') // Fetch data
-      if (!response.ok) throw new Error('Failed to fetch tours') // Handle HTTP errors
-      const data = await response.json() // Parse JSON response
-      setTours(data) // Update tours state
+      // Fetch data using CORS proxy
+      const response = await fetch('https://api.allorigins.win/raw?url=https://course-api.com/react-tours-project');
+      if (!response.ok) throw new Error('Failed to fetch tours');
+      const data = await response.json(); // Parse JSON data
+      setTours(data); // Store tours in state
     } catch (err) {
-      setError(err.message) // Set error message if fetch fails
+      setError(err.message); // Set error message
     } finally {
-      setLoading(false) // Set loading to false after fetch
+      setLoading(false); // Stop loading
     }
-  }
+  };
 
+  // useEffect to fetch tours when component mounts
   useEffect(() => {
-    fetchTours()
-  }, [])
+    fetchTours(); // Initial fetch
+  }, []);
 
-  // Conditional rendering based on state
-  if (loading) return <h1>Loading...</h1> // Show loading message
-  if (error) return <h1>Error: {error}</h1> // Show error message
-  if (tours.length === 0) return <button onClick={fetchTours}>Refresh</button> // Show refresh button if no tours
+// Function to remove a tour by its ID
+const removeTour = (id) => {
+  setTours((prevTours) => prevTours.filter((tour) => tour.id !== id));
+};
 
-  return (
-    <div className="app-container"> {/* Main app container */}
-      <h1 className="title">Our Tours</h1> {/* Page title */}
-      <Gallery tours={tours} setTours={setTours} /> {/* Render Gallery component */}
-    </div>
-  )
-}
+// Conditional rendering: show loading message
+if (loading) return <h2>Loading...</h2>;
 
-export default App // Export App component
+// Conditional rendering: show error message
+if (error) return <h2>Error: {error}</h2>;
