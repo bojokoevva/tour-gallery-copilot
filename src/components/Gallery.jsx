@@ -1,19 +1,16 @@
-import React from 'react' // Import React
-import TourCard from './TourCard' // Import TourCard component
+import React from 'react';
+import TourCard from './TourCard'; // Import TourCard component
 
-function Gallery({ tours, setTours }) {
-  // Function to remove a tour by ID
-  const removeTour = (id) => {
-    setTours(tours.filter((tour) => tour.id !== id)) // Filter out the removed tour
-  }
-
+// Gallery receives tours and removeTour
+function Gallery({ tours, removeTour }) {
   return (
-    <div className="gallery"> {/* Gallery container */}
+    <div className="gallery">
+      {/* Render each tour card */}
       {tours.map((tour) => (
-        <TourCard key={tour.id} tour={tour} removeTour={removeTour} /> // Render a TourCard for each tour
+        <TourCard key={tour.id} tour={tour} removeTour={removeTour} />
       ))}
     </div>
-  )
+  );
 }
 
-export default Gallery // Export Gallery component
+export default Gallery;
